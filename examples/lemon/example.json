@@ -1,0 +1,72 @@
+{
+  "dataset": "VI AMO",
+  "split": "test",
+  "episode_id": "droid_fruit/11357/28662",
+  "instruction": "Take the lemon out of the bowl and put it on the table",
+  "fps": 15.0,
+  "total_frames": 214,
+  "actions": [
+    {
+      "id": "atomic_1",
+      "label": "pick up the lemon from the bowl",
+      "start_frame": 0,
+      "end_frame": 122
+    },
+    {
+      "id": "atomic_2",
+      "label": "place the lemon on the table",
+      "start_frame": 123,
+      "end_frame": 213
+    }
+  ],
+  "missions": [
+    {
+      "id": "mission_1",
+      "label": "put the lemon from the bowl on the table",
+      "start_frame": 0,
+      "end_frame": 213,
+      "action_ids": [
+        "atomic_1",
+        "atomic_2"
+      ]
+    }
+  ],
+  "inference": {
+    "action_id": "atomic_2",
+    "cutoff_percent": 70,
+    "frame_indices": [
+      123,
+      144,
+      165,
+      186
+    ],
+    "history": [
+      "pick up the lemon from the bowl"
+    ],
+    "front": [
+      "front_0.png",
+      "front_1.png",
+      "front_2.png",
+      "front_3.png"
+    ],
+    "wrist": [
+      "wrist_0.png",
+      "wrist_1.png",
+      "wrist_2.png",
+      "wrist_3.png"
+    ],
+    "target": {
+      "ongoing_action": "place the lemon on the table",
+      "ongoing_mission": "put the lemon from the bowl on the table"
+    },
+    "recorded_prediction": "Ongoing action: place the lemon on the table\nOngoing mission: put the lemon from the bowl on the table"
+  },
+  "image_source": {
+    "dataset": "DROID",
+    "authors": "DROID Dataset Team",
+    "url": "https://droid-dataset.github.io/",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "processing": "Frames extracted from video and saved as RGB PNG images."
+  }
+}

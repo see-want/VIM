@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vim-intention"
+version = "0.1.0"
+description = "Vision-Intention Model for hierarchical action and mission prediction"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+  "numpy>=1.26", "Pillow>=10", "PyYAML>=6", "av>=13", "torch>=2.7",
+  "huggingface-hub>=1.0,<2",
+]
+
+[project.optional-dependencies]
+train = [
+  "transformers==5.5.0", "trl==0.24.0", "peft==0.20.0",
+  "unsloth==2026.7.6", "unsloth-zoo==2026.7.7", "accelerate>=1.10",
+]
+eval = ["transformers==5.5.0", "sentencepiece>=0.2", "protobuf>=5"]
+dev = ["pytest>=8", "ruff>=0.11"]
+
+[project.urls]
+Repository = "https://github.com/vision-intention-action/VIM"
+
+[project.scripts]
+vim-prepare = "vim.prepare:main"
+vim-train = "vim.train:main"
+vim-infer = "vim.infer:main"
+vim-predict = "vim.predict:main"
+vim-evaluate = "vim.evaluate:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

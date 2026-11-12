@@ -1,0 +1,3 @@
+extends: vim27b.yaml
+data:
+  single_frame: true

@@ -1,0 +1,4 @@
+extends: vim27b.yaml
+data:
+  no_context: true
+  mission_window: true

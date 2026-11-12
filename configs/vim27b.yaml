@@ -1,0 +1,25 @@
+model: unsloth/Qwen3.5-27B
+max_seq_length: 2048
+data:
+  seed: 3407
+  plans: [uniform, 'prefix_random:0.3', 'prefix_random:0.6', 'prefix_random:0.8', local, irregular]
+lora:
+  r: 16
+  alpha: 16
+training:
+  epochs: 1
+  batch_size: 4
+  gradient_accumulation: 4
+  learning_rate: 0.0001
+  warmup_ratio: 0.03
+  weight_decay: 0.001
+  save_steps: 1000
+  eval_steps: 1000
+  logging_steps: 10
+  workers: 8
+generation:
+  batch_size: 4
+  max_new_tokens: 80
+metrics:
+  sbert: sentence-transformers/all-mpnet-base-v2
+  siglip: google/siglip-so400m-patch14-384
